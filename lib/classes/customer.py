@@ -4,7 +4,6 @@ class Customer:
         self._reviews = []
         if not 1 <= len(first_name) <= 25:
             raise ValueError("First name must be between 1 and 25 characters")
-        self._first_name = first_name
         if not 1 <= len(last_name) <= 25:            
             raise ValueError("Last name must be between 1 and 25 characters")
         self._first_name = first_name
@@ -33,9 +32,6 @@ class Customer:
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
-
-    def get_num_reviews(self):
-        return len(self._reviews)
     
     @property
     def restaurants(self):
@@ -51,9 +47,8 @@ class Customer:
     def add_review(self, review):
         self._reviews.append(review)
 
-
     def create_review(self, restaurant, rating):
         # This prevents a circular import!
         from classes.review import Review
         review = Review(self, restaurant, rating)
-        self._reviews.append(review)
+        return review

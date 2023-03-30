@@ -8,6 +8,7 @@ class Restaurant:
         if not isinstance(name, str):
             raise Exception("Name must be a string")
         self._name = name
+        self.all.append(self)
 
     @property
     def name(self):

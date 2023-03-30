@@ -47,6 +47,3 @@ class Review:
         if not 1 <= value <= 5:
             raise Exception("Rating must be a number between 1 and 5")
         self._rating = value
-
-    
-
